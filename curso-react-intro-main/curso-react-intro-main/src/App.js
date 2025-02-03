@@ -14,13 +14,27 @@ const defaults= [
 {text:'Dar comida Gato',completed:false,id:3},
 {text:'Pagar Facturas',completed:true,id:4}
 ]
+const localStorageTodos= localStorage.getItem("TODOSV1")
+const stringTodos= JSON.stringify(defaults)
+//localStorage.setItem('TODOSV1',stringTodos);
+//localStorage.removeItem('TODOSV1');
+
 function App() {
-  const [todos,setTodos]=React.useState(defaults);
+  let parsedTodos;
+  if(!localStorageTodos){
+    localStorage.setItem("TODOSV1",JSON.stringify([]));
+    parsedTodos =[];
+  }else{
+    parsedTodos =  JSON.parse(localStorage.getItem("TODOSV1"));
+  }
+   
+  
+  const [todos,setTodos]=React.useState(parsedTodos);
   const [searchValue,setSearchValue]= React.useState('');
-  const completed= todos.filter(todos=> !!todos.completed).length;
-  const searchFilter = todos.filter((todos)=>
-  {return todos.text.toLowerCase().includes(searchValue.toLowerCase())});
-  const total = todos.length;
+  const completed= todos?.filter(todos=> !!todos?.completed).length;
+  const searchFilter = todos?.filter((todos)=>
+  {return todos?.text?.toLowerCase().includes(searchValue.toLowerCase())});
+  const total = todos?.length;
 
   
 
@@ -30,7 +44,7 @@ function App() {
       (x) => x.id === id
     );
     newTodos[todoIndex].completed=true;
-    setTodos(newTodos);
+    salvarTodos(newTodos);
   }
 
   const deleteTodo = (id) => {
@@ -39,17 +53,13 @@ function App() {
       (x) => x.id === id
     );
     newTodos.splice(todoIndex,1);
-    setTodos(newTodos);
+    salvarTodos(newTodos);
   }
-  const completeTodo = (text) => {
-    const newTodos = [...todos];
-    const todoIndex = newTodos.findIndex(
-      (todo) => todo.text == text
-    );
-    newTodos[todoIndex].completed = true;
-    setTodos(newTodos);
-  };
-
+  
+  const salvarTodos = (newTods)=>{
+    setTodos(newTods);
+    localStorage.setItem("TODOSV1",JSON.stringify(newTods));
+  }
 
   return (
     <React.Fragment>
