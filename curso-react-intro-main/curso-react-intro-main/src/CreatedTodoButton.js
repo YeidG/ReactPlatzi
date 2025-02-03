@@ -1,7 +1,15 @@
+
+
 function CreatedTodoButton(){
+   
     return(
-   <button>crear</button>
+   <button className="CreateButton" >
+   +
+   </button>
 
     );
     }
+
+
+
 export {CreatedTodoButton};

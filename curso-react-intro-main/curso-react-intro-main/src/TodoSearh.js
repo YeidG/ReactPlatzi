@@ -1,7 +1,18 @@
-function TodoSearch(){
+
+
+
+import React, { useState }  from "react";
+function TodoSearch(props){
+    
+
     return(
-   <input placeholder="Valor Default"/>
+   <input className="TodoSearch" placeholder="Buscador de Todos"
+   value={props.searchValue}
+   onChange={(event)=>{
+    props.setSearchValue(event.target.value);
+   }}/>
 
     );
     }
+
 export {TodoSearch};
