@@ -12,6 +12,8 @@ import { TodoContext } from './components/todoContext';
 import { TodosError } from './components/TodosError';
 import { EmptyTodos } from './components/EmptyTodos';
 import { TodosLoading } from './components/TodosLoading';
+import { Modal } from './components/Modal';
+import { TodoForm } from './components/TodoForm';
 function AppUI(){
   const {
     loading,
@@ -19,6 +21,7 @@ function AppUI(){
     searchedTodos,
     completeTodo,
     deleteTodo,
+    openModal,setOpenModal
   } = React.useContext(TodoContext);
   return (
     <React.Fragment>
@@ -39,7 +42,7 @@ function AppUI(){
 
             {searchedTodos.map(todo => (
               <TodoItem
-              key={todo.text}
+              key={todo.id}
               text={todo.text}
               completed={todo.completed}
               onComplete={() => completeTodo(todo.text)}
@@ -49,6 +52,8 @@ function AppUI(){
           </TodoList>
       
        <CreatedTodoButton />
+          {openModal && <Modal><TodoForm></TodoForm>  </Modal>}
+       
     </React.Fragment>
   );
 }
