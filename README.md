@@ -20,3 +20,4 @@
 - LocalStorage (para persistencia)  
 
 ¡Comienza a organizarte con **Todo Machine** y mejora tu productividad! 🚀 
+https://yeidg.github.io/ReactPlatzi/
