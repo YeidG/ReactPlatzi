@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ReactPlatzi/static/css/main.73f9f062.css",
+    "main.js": "/ReactPlatzi/static/js/main.b63a595a.js",
+    "index.html": "/ReactPlatzi/index.html",
+    "main.73f9f062.css.map": "/ReactPlatzi/static/css/main.73f9f062.css.map",
+    "main.b63a595a.js.map": "/ReactPlatzi/static/js/main.b63a595a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.73f9f062.css",
+    "static/js/main.b63a595a.js"
+  ]
+}
